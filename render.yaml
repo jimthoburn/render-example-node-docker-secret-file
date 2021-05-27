@@ -4,5 +4,5 @@ services:
   plan: starter
   env: docker
   envVars:
-  - key: MY_PORT
-    value: 1234
+  - key: HTTP_PORT
+    value: 8080

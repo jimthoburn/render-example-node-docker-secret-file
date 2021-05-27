@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# ARG $HTTP_PORT
+# ARG $PUBLIC_PORT
 
-EXPOSE $HTTP_PORT
+EXPOSE $PUBLIC_PORT
 CMD [ "node", "server.js" ]

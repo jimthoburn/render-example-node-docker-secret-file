@@ -18,5 +18,5 @@ COPY . .
 # Open a port for the application
 EXPOSE $PUBLIC_PORT
 
-# Start the application
-CMD /bin/bash -c 'sh start.sh'
+# Make the secret file available for this command, and then start the application
+CMD --mount=type=secret,id=_secret_env,dst=.secret-env /bin/bash -c 'sh start.sh'

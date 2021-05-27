@@ -2,7 +2,7 @@
 
 # Use environment variables from a secret file
 set -o allexport
-source .env
+source .secret-env
 set +o allexport
 
 # Start the application

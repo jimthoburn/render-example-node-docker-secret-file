@@ -15,7 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# ARG $PUBLIC_PORT
-
+# Open a port for the application
 EXPOSE $PUBLIC_PORT
-CMD [ "node", "server.js" ]
+
+# Start the application
+CMD /bin/bash -c 'sh start.sh'

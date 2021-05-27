@@ -18,5 +18,5 @@ COPY . .
 # Open a port for the application
 EXPOSE $PUBLIC_PORT
 
-# Make the secret file available for this command, and then start the application
-CMD --mount=type=secret,id=_secret_env,dst=.secret-env /bin/bash -c 'sh start.sh'
+# This will be overridden by the dockerCommand in render.yaml
+CMD [ "node", "server.js" ]

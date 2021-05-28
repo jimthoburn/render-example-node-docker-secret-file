@@ -17,8 +17,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Secret files can be accessed within a Dockerfile
 # https://render.com/docs/docker-secrets
-# RUN --mount=type=secret,id=_secret_env,dst=/ephemeral/.filename cat /ephemeral/.filename
+# RUN --mount=type=secret,id=_secret_env cat .secret-env
 
 # Open a port for the application
 EXPOSE $PUBLIC_PORT

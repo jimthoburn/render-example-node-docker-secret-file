@@ -25,4 +25,4 @@ COPY . .
 EXPOSE $PUBLIC_PORT
 
 # Start the application.
-CMD /bin/bash -c 'set -o allexport; source ./.secret-env; set +o allexport; echo "The value of the “SECRET_PORT” environment variable is:"; echo $SECRET_PORT; npm start'
+CMD /bin/bash -c 'sh ./start.sh'

@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Use environment variables from a secret file
 set -o allexport
-source .secret-env
+source ./.secret-env
 set +o allexport
 
 echo "The value of the “SECRET_PORT” environment variable is:"

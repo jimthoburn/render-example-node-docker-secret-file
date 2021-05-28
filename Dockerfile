@@ -25,4 +25,4 @@ COPY . .
 EXPOSE $PUBLIC_PORT
 
 # Start the application.
-CMD ["sh", "./start.sh"]
+CMD /bin/bash -c 'sh start.sh'

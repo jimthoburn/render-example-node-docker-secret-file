@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Use environment variables from a secret file
+# Set a secret environment variable for the running application
 set -o allexport
 source ./.secret-env
 set +o allexport

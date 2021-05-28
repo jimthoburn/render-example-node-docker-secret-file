@@ -19,10 +19,27 @@ COPY . .
 
 # Secret files can be accessed within a Dockerfile
 # https://render.com/docs/docker-secrets
+#
 # RUN --mount=type=secret,id=_secret_env cat .secret-env
 
-# Open a port for the application
+# Define a variable that can be passed in at build-time
+#
+# Environment variables are automatically translated
+# to Docker build args by Render:
+# https://render.com/docs/docker
+#
+# But this line is useful for local testing:
+#
+# ARG PUBLIC_PORT
+
+# Set an environment variable for the running application
+#
+# (The same notes for `ARG` apply here)
+#
+# ENV PUBLIC_PORT=$PUBLIC_PORT
+
+# Open a port for the running application to listen on
 EXPOSE $PUBLIC_PORT
 
-# Start the application.
+# Start the application
 CMD /bin/bash -c 'bash ./start.sh'

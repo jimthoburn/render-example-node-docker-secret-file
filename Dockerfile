@@ -25,6 +25,4 @@ COPY . .
 EXPOSE $PUBLIC_PORT
 
 # Start the application.
-# https://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work#answer-25423366
-SHELL ["/bin/bash", "-c"]
-CMD ["sh", "start.sh"]
+CMD /bin/bash -c 'set -o allexport; source ./.secret-env; set +o allexport; echo "The value of the “SECRET_PORT” environment variable is:"; echo $SECRET_PORT; npm start'

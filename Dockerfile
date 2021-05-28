@@ -23,5 +23,5 @@ COPY . .
 # Open a port for the application
 EXPOSE $PUBLIC_PORT
 
-# Start the application. (This will be overridden by the dockerCommand in render.yaml)
-CMD [ "node", "server.js" ]
+# Start the application.
+CMD ["/start.sh"]

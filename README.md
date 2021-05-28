@@ -1,7 +1,11 @@
-# render-example-node-docker-secret-file
+# Example Docker app with secrets on Render
 
-Based on the guide from:
+This is example Docker app with an environment variable and a secret file, deployed on Render
+
+This is based on a guide for Node.js:
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+
+The official Docker reference was also super helpful:
 https://docs.docker.com/engine/reference/builder/
 
 ## How to deploy on Render

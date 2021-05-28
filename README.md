@@ -43,7 +43,7 @@ The value of the “SECRET_PORT” environment variable is: 5678
 
 ## How to test locally
 
-1. Rename `.secret-env.example` to `.secret-env`, and a secret port number to the file
+1. Rename `.secret-env.example` to `.secret-env`, and add a secret port number to the file
 ```
 SECRET_PORT=5678
 ```
@@ -53,12 +53,12 @@ SECRET_PORT=5678
 export PUBLIC_PORT=80
 ```
 
-3. Build your Docker container (replace <USERNAME> with your favorite username)
+3. Build the container (replace `<USERNAME>` with your favorite username)
 ```
 DOCKER_BUILDKIT=1 docker build --secret id=_secret_env,src=.secret-env --build-arg PUBLIC_PORT . -t <USERNAME>/node-web-app
 ```
 
-4. Run container Docker container
+4. Run the container
 ```
 docker run -p 49162:$PUBLIC_PORT -d <USERNAME>/node-web-app
 ```
@@ -68,7 +68,7 @@ docker run -p 49162:$PUBLIC_PORT -d <USERNAME>/node-web-app
 docker ps
 ```
 
-6. Check the logs for your container (Replace <CONTAINER_ID> with what you found with step 4)
+6. Check the logs for your container (Replace `<CONTAINER_ID>` with what you found in the previous step)
 ```
 docker logs <CONTAINER_ID>
 ```
@@ -81,3 +81,5 @@ docker exec -it <CONTAINER_ID> /bin/bash
 8. You can poke around in the files with `ls -al`, and exit the shell with `exit`
 
 There’s no step 9! 🎉
+
+Note that with this process `.secret-env` will be included in the image. So if you have an actual secret, you may not want to share or publish the image.

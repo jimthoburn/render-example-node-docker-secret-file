@@ -32,6 +32,12 @@ SECRET_PORT=5678
 
 6. Choose `Manual Deploy > Deploy latest commit`
 
+7. After the deployment is finished, the logs should show something like this, with the public and secret port numbers that you chose.
+```
+Running on http://0.0.0.0:1234
+The value of the “SECRET_PORT” environment variable is: 5678
+```
+
 ## How to test locally
 
 1. Rename `.secret-env.example` to `.secret-env`, and a secret port number to the file

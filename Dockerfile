@@ -1,3 +1,5 @@
+# syntax = docker/dockerfile:1.2
+
 FROM node:14
 
 # Create app directory
@@ -15,8 +17,11 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# https://render.com/docs/docker-secrets
+# RUN --mount=type=secret,id=_secret_env,dst=/ephemeral/.filename cat /ephemeral/.filename
+
 # Open a port for the application
 EXPOSE $PUBLIC_PORT
 
-# This will be overridden by the dockerCommand in render.yaml
+# Start the application. (This will be overridden by the dockerCommand in render.yaml)
 CMD [ "node", "server.js" ]

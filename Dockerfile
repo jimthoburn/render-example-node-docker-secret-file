@@ -25,4 +25,6 @@ COPY . .
 EXPOSE $PUBLIC_PORT
 
 # Start the application.
-CMD /bin/bash -c 'sh start.sh'
+# https://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work#answer-25423366
+SHELL ["/bin/bash", "-c"]
+CMD ["sh", "start.sh"]

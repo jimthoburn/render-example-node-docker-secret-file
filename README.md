@@ -1,6 +1,6 @@
 # Example Docker app with secrets on Render
 
-This is example Docker app with an environment variable and a secret file, deployed on Render
+This is example Node.js app in Docker container with an environment variable and a secret file, deployed on Render
 
 This is based on a guide for Node.js:
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
@@ -51,7 +51,7 @@ DOCKER_BUILDKIT=1 docker build --secret id=_secret_env,src=.secret-env --build-a
 
 4. Run container Docker container
 ```
-docker run -p 49162:$PUBLIC_PORT -d jimthoburn/node-web-app
+docker run -p 49162:$PUBLIC_PORT -d <USERNAME>/node-web-app
 ```
 
 5. Get the container ID

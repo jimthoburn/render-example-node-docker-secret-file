@@ -38,6 +38,9 @@ Running on http://0.0.0.0:1234
 The value of the “SECRET_PORT” environment variable is: 5678
 ```
 
+<img width="727" alt="log" src="https://user-images.githubusercontent.com/926616/119920784-bc5d7700-bf21-11eb-91eb-b15551ceeefe.png">
+
+
 ## How to test locally
 
 1. Rename `.secret-env.example` to `.secret-env`, and a secret port number to the file
@@ -75,4 +78,6 @@ docker logs <CONTAINER_ID>
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-8. Exit the shell with `exit`
+8. You can poke around in the files with `ls -al`, and exit the shell with `exit`
+
+There’s no step 9! 🎉

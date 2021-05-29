@@ -1,8 +1,12 @@
 .git
 .gitignore
-node_modules
-npm-debug.log
+secrets
+.env
+.secret-env
+.secret-env.example
 .dockerignore
+.dockerignore.example
 Dockerfile
 render.yaml
-.secret-env.example
+node_modules
+npm-debug.log

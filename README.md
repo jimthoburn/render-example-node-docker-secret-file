@@ -5,8 +5,11 @@ This is example Node.js app in Docker, with an environment variable and a secret
 This is based on a guide for Node.js:
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
-The official Docker reference was also super helpful:
+Docker reference:
 https://docs.docker.com/engine/reference/builder/
+
+Docker build secrets and private npm packages:
+https://www.alexandraulsh.com/2019/02/24/docker-build-secrets-and-npmrc/
 
 ## How to deploy on Render
 
@@ -61,12 +64,12 @@ ENV PUBLIC_PORT=$PUBLIC_PORT
 
 4. Build the container (replace `<USERNAME>` with your favorite username)
 ```
-DOCKER_BUILDKIT=1 docker build --secret id=_secret_env,src=.secret-env --build-arg PUBLIC_PORT . -t <USERNAME>/node-web-app
+DOCKER_BUILDKIT=1 docker build --secret id=_env,src=secrets/.env --build-arg PUBLIC_PORT . -t <USERNAME>/node-web-app
 ```
 
 5. Run the container
 ```
-docker run -p 4000:$PUBLIC_PORT -d <USERNAME>/node-web-app
+docker run --mount type=volume,source=secrets,destination=/etc/secrets/ -p 4000:$PUBLIC_PORT -d <USERNAME>/node-web-app
 ```
 
 Note: You can replace `4000` with any port number you’d like.

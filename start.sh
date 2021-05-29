@@ -2,7 +2,7 @@
 
 # Set a secret environment variable for the running application
 set -o allexport
-source ./.secret-env
+source /etc/secrets/.env
 set +o allexport
 
 echo "The value of the “SECRET_PORT” environment variable is:"

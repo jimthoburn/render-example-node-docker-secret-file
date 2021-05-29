@@ -2,8 +2,6 @@
 .gitignore
 secrets
 .env
-.secret-env
-.secret-env.example
 .dockerignore
 .dockerignore.example
 Dockerfile

@@ -5,4 +5,4 @@ services:
   env: docker
   envVars:
   - key: PUBLIC_PORT
-    value: 1234
+    value: 1235

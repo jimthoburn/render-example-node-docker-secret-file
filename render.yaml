@@ -3,6 +3,7 @@ services:
   name: render-example-node-docker-secret-file
   plan: starter
   env: docker
+  pullRequestPreviewsEnabled: true
   envVars:
   - key: PUBLIC_PORT
     value: 1235

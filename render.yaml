@@ -6,4 +6,4 @@ services:
   pullRequestPreviewsEnabled: false
   envVars:
   - key: PUBLIC_PORT
-    value: 1236
+    value: 1237

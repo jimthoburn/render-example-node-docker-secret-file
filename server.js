@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+// Health Check
+app.get('/health-check', (req, res) => {
+  res.send('Server is healthy');
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 

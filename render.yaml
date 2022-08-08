@@ -9,3 +9,5 @@ services:
     value: 80
   - key: PUBLIC_MESSAGE
     value: "Hello world 👋"
+  - key: HELLO_FROM_DOCKER_FILE_PATH
+    value: "generated-file.txt"

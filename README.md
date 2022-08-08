@@ -48,6 +48,8 @@ The value of the “SECRET_PORT” environment variable is: 5678
 SECRET_PORT=5678
 ```
 
+_You can also rename `.dockerignore.example` to `.dockerignore`, and add any [files you’d like to be ignored](https://docs.docker.com/engine/reference/builder/#dockerignore-file)._
+
 2. Open a terminal and set an environment variable for `PUBLIC_PORT`
 ```
 export PUBLIC_PORT=80
@@ -61,12 +63,19 @@ ENV PUBLIC_PORT=$PUBLIC_PORT
 
 4. Build the container (replace `<USERNAME>` with your favorite username)
 ```
-DOCKER_BUILDKIT=1 docker build --secret id=_secret_env,src=.secret-env --build-arg PUBLIC_PORT . -t <USERNAME>/node-web-app
+DOCKER_BUILDKIT=1 \
+docker build \
+  --secret id=_secret_env,src=.secret-env \
+  --build-arg PUBLIC_PORT \
+  . \
+  -t <USERNAME>/node-web-app
 ```
 
-5. Run the container
+5. Run the container (replace `<USERNAME>` with the username you chose in step 4)
 ```
-docker run -p 4000:$PUBLIC_PORT -d <USERNAME>/node-web-app
+docker run \
+  -p 4000:$PUBLIC_PORT \
+  -d <USERNAME>/node-web-app
 ```
 
 Note: You can replace `4000` with any port number you’d like.

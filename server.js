@@ -3,7 +3,7 @@
 const express = require('express');
 
 // Constants
-const PORT = process.env.PUBLIC_PORT;
+const PORT = process.env.PUBLIC_PORT ?? 10000;
 const HOST = '0.0.0.0';
 
 // App

@@ -34,17 +34,17 @@ ARG PUBLIC_MESSAGE
 ARG HELLO_FROM_DOCKER_FILE_PATH
 
 # Send a message during the build process
-RUN echo "Hello from the Dockerfile 🐳"
-RUN echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}"
-RUN echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}"
+RUN /bin/echo "Hello from the Dockerfile 🐳"
+RUN /bin/echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}"
+RUN /bin/echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}"
 
 # Write the same message to a log file
-RUN echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
-RUN echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}" >> /usr/src/app/dockerfile-log.txt
-RUN echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}" >> /usr/src/app/dockerfile-log.txt
+RUN /bin/echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
+RUN /bin/echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}" >> /usr/src/app/dockerfile-log.txt
+RUN /bin/echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}" >> /usr/src/app/dockerfile-log.txt
 
 # Write a message to a file with a configurable name
-RUN echo "Hello from Docker 📁" >> /usr/src/app/${HELLO_FROM_DOCKER_FILE_PATH}
+RUN /bin/echo "Hello from Docker 📁" >> /usr/src/app/${HELLO_FROM_DOCKER_FILE_PATH}
 
 # Set an environment variable for the running application
 #

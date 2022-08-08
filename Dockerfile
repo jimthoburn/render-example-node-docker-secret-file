@@ -42,7 +42,7 @@ RUN echo "'The value of the PUBLIC_MESSAGE_WITHOUT_SPACES environment variable i
 
 RUN ["/bin/echo", "Hello from the Dockerfile using an array form of RUN 🐳"]
 RUN ["/bin/echo", "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}"]
-RUN ["/bin/echo", "The value of the PUBLIC_MESSAGE environment variable is: ", $PUBLIC_MESSAGE]
+RUN ["/bin/echo", $PUBLIC_MESSAGE]
 
 # Write the same message to a log file
 RUN echo "'Hello from the Dockerfile 🐳'" >> /usr/src/app/dockerfile-log.txt

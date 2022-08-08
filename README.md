@@ -51,15 +51,11 @@ SECRET_PORT=5678
 
 _You can also rename `.dockerignore.example` to `.dockerignore`, and add any [files you’d like to be ignored](https://docs.docker.com/engine/reference/builder/#dockerignore-file)._
 
-2. Open a terminal and set an environment variable for `PUBLIC_PORT`
+2. Open a terminal and set these environment variables:
 ```
 export PUBLIC_PORT=80
-```
-
-3. Uncomment these two lines in the `Dockerfile`:
-```
-ARG PUBLIC_PORT
-ENV PUBLIC_PORT=$PUBLIC_PORT
+export PUBLIC_MESSAGE="Hello world 👋"
+export HELLO_FROM_DOCKER_FILE_PATH="hello-from-docker.txt"
 ```
 
 4. Build the container (replace `<USERNAME>` with your favorite username)
@@ -100,6 +96,6 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 http://localhost:4000/
 
-There’s no step 10! 🎉
+You did it! 🎉
 
 Note that with this process `.secret-env` will be included in the image. So if you have an actual secret in the file, you may not want to share or publish your Docker image.

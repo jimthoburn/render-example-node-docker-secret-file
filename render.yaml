@@ -7,3 +7,5 @@ services:
   envVars:
   - key: PUBLIC_PORT
     value: 80
+  - key: PUBLIC_MESSAGE
+    value: "Hello world 👋"

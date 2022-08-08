@@ -30,14 +30,17 @@ COPY . .
 # https://render.com/docs/docker
 #
 ARG PUBLIC_PORT
+ARG PUBLIC_MESSAGE
 
 # Send a message during the build process
 RUN echo "Hello from the Dockerfile 🐳"
 RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT"
+RUN echo "The value of the PUBLIC_MESSAGE environment variable is: $PUBLIC_MESSAGE"
 
 # Write the same message to a log file
 RUN echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
 RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT" >> /usr/src/app/dockerfile-log.txt
+RUN echo "The value of the PUBLIC_MESSAGE environment variable is: $PUBLIC_MESSAGE" >> /usr/src/app/dockerfile-log.txt
 
 # Set an environment variable for the running application
 #
@@ -48,6 +51,7 @@ RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT" >>
 # But this line is useful for local testing:
 #
 ENV PUBLIC_PORT=$PUBLIC_PORT
+ENV PUBLIC_MESSAGE=$PUBLIC_MESSAGE
 
 # Open a port for the running application to listen on
 EXPOSE $PUBLIC_PORT

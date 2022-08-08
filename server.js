@@ -4,12 +4,13 @@ const express = require('express');
 
 // Constants
 const PORT = process.env.PUBLIC_PORT ?? 10000;
+const PUBLIC_MESSAGE = process.env.PUBLIC_MESSAGE ?? "📣";
 const HOST = '0.0.0.0';
 
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello World 👋');
+  res.send(PUBLIC_MESSAGE);
 });
 
 // Health Check

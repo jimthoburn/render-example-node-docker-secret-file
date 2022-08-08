@@ -10,36 +10,37 @@ https://docs.docker.com/engine/reference/builder/
 
 ## How to deploy on Render
 
-Quick start:
-https://render.com/deploy?repo=https://github.com/jimthoburn/render-example-node-docker-secret-file
+1. Make a copy of this repository in your GitHub account:  
+https://github.com/jimthoburn/render-example-node-docker-secret-file/generate
 
-Step-by-step:
-
-1. Fork this repository (optional):
-https://github.com/jimthoburn/render-example-node-docker-secret-file
-
-2. Sign in to Render and create a new YAML group:
-https://dashboard.render.com/select-repo?type=iac
+2. Sign in to Render and create a new Blueprint using your repository URL:  
+https://dashboard.render.com/select-repo?type=blueprint
 
 3. Open the `render-example-node-docker-secret-file` service
 
-4. Under the `Environment` tab, set an environment variable for `PUBLIC_PORT` with any value (For example: `80`).
-
-5. Create a secret file named `.secret-env` with the following contents:
+4. Under the `Environment` tab, create a secret file named `.secret-env` with the following contents:
 ```
 SECRET_PORT=5678
 ```
 
-6. Choose `Manual Deploy > Deploy latest commit`
+5. You can also change the `PUBLIC_PORT` to any value you wish
+
+6. The service will automatically deploy with your changes to the environment
 
 7. After the deployment is finished, the logs should show something like this, with the public and secret port numbers that you chose.
 ```
-Running on http://0.0.0.0:1234
-The value of the “SECRET_PORT” environment variable is: 5678
+Hello from the Dockerfile 🐳
+The value of the PUBLIC_PORT environment variable is: 80
+Hello from the shell 🐚
+The value of the SECRET_PORT environment variable is: 5678
+
+> docker_web_app@1.0.0 start /usr/src/app
+> node server.js
+
+Running on http://0.0.0.0:80
+Hello from the app 📦
+The value of the SECRET_PORT environment variable is: 5678
 ```
-
-<img width="727" alt="log" src="https://user-images.githubusercontent.com/926616/119920784-bc5d7700-bf21-11eb-91eb-b15551ceeefe.png">
-
 
 ## How to test locally
 

@@ -31,6 +31,11 @@ COPY . .
 #
 ARG PUBLIC_PORT
 
+# Send a message during the build process
+RUN echo "Hello from the Dockerfile 🐳"
+RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT"
+
+# Write the same message to a log file
 RUN echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
 RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT" >> /usr/src/app/dockerfile-log.txt
 

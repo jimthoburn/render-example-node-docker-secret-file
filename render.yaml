@@ -9,5 +9,7 @@ services:
     value: 80
   - key: PUBLIC_MESSAGE
     value: "Hello world 👋"
+  - key: PUBLIC_MESSAGE_WITHOUT_SPACES
+    value: "Hello_world"
   - key: HELLO_FROM_DOCKER_FILE_PATH
     value: "hello-from-docker.txt"

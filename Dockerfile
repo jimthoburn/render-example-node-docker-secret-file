@@ -31,20 +31,27 @@ COPY . .
 #
 ARG PUBLIC_PORT
 ARG PUBLIC_MESSAGE
+ARG PUBLIC_MESSAGE_WITHOUT_SPACES
 ARG HELLO_FROM_DOCKER_FILE_PATH
 
 # Send a message during the build process
-RUN /bin/echo "Hello from the Dockerfile 🐳"
-RUN /bin/echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}"
-RUN /bin/echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}"
+RUN echo "'Hello from the Dockerfile 🐳'"
+RUN echo "'The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}'"
+RUN echo "'The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}'"
+RUN echo "'The value of the PUBLIC_MESSAGE_WITHOUT_SPACES environment variable is: ${PUBLIC_MESSAGE_WITHOUT_SPACES}'"
+
+RUN ["/bin/echo", "Hello from the Dockerfile using an array form of RUN 🐳"]
+RUN ["/bin/echo", "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}"]
+RUN ["/bin/echo", "The value of the PUBLIC_MESSAGE environment variable is: ", $PUBLIC_MESSAGE]
 
 # Write the same message to a log file
-RUN /bin/echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
-RUN /bin/echo "The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}" >> /usr/src/app/dockerfile-log.txt
-RUN /bin/echo "The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}" >> /usr/src/app/dockerfile-log.txt
+RUN echo "'Hello from the Dockerfile 🐳'" >> /usr/src/app/dockerfile-log.txt
+RUN echo "'The value of the PUBLIC_PORT environment variable is: ${PUBLIC_PORT}'" >> /usr/src/app/dockerfile-log.txt
+RUN echo "'The value of the PUBLIC_MESSAGE environment variable is: ${PUBLIC_MESSAGE}'" >> /usr/src/app/dockerfile-log.txt
+RUN echo "'The value of the PUBLIC_MESSAGE_WITHOUT_SPACES environment variable is: ${PUBLIC_MESSAGE_WITHOUT_SPACES}'" >> /usr/src/app/dockerfile-log.txt
 
 # Write a message to a file with a configurable name
-RUN /bin/echo "Hello from Docker 📁" >> /usr/src/app/${HELLO_FROM_DOCKER_FILE_PATH}
+RUN echo "'Hello from Docker 📁'" >> "/usr/src/app/${HELLO_FROM_DOCKER_FILE_PATH}"
 
 # Set an environment variable for the running application
 #

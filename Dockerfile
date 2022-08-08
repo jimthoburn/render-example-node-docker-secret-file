@@ -23,20 +23,26 @@ COPY . .
 # RUN --mount=type=secret,id=_secret_env cat .secret-env
 
 # Define a variable that can be passed in at build-time
+# It will be available for use in this Dockerfile
 #
-# Environment variables are automatically translated
-# to Docker build args by Render:
+# Environment variables that you set in the Render dashboard
+# are automatically translated to Docker build args by Render:
 # https://render.com/docs/docker
 #
-# But this line is useful for local testing:
-#
-# ARG PUBLIC_PORT
+ARG PUBLIC_PORT
+
+RUN echo "Hello from the Dockerfile 🐳" >> /usr/src/app/dockerfile-log.txt
+RUN echo "The value of the PUBLIC_PORT environment variable is: $PUBLIC_PORT" >> /usr/src/app/dockerfile-log.txt
 
 # Set an environment variable for the running application
 #
-# (The same notes for `ARG` apply here)
+# Environment variables that you set in the Render dashboard
+# are automatically made available to your application:
+# https://render.com/docs/configure-environment-variables
 #
-# ENV PUBLIC_PORT=$PUBLIC_PORT
+# But this line is useful for local testing:
+#
+ENV PUBLIC_PORT=$PUBLIC_PORT
 
 # Open a port for the running application to listen on
 EXPOSE $PUBLIC_PORT

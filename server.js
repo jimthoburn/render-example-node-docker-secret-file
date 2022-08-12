@@ -22,3 +22,4 @@ console.log(`Running on http://${HOST}:${PORT}`);
 
 console.log(`Hello from the app 📦`);
 console.log(`The value of the SECRET_PORT environment variable is: ${ process.env.SECRET_PORT }`);
+console.log(`The value of the PRETEND_PRIVATE_KEY environment variable is: ${ process.env.PRETEND_PRIVATE_KEY }`);

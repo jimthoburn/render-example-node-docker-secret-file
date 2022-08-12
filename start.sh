@@ -11,4 +11,4 @@ echo "Hello from the shell 🐚"
 echo "The value of the SECRET_PORT environment variable is: $SECRET_PORT"
 
 # Start the application
-npm start
+export PRETEND_PRIVATE_KEY=$(cat pretend-private-key) && npm start
